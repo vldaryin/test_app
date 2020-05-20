@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#9042F7</color>
+
+    <color name="background_color">#1E2833</color>
+    <color name="header_background_color">#191E24</color>
+    <color name="additional_text_color">#3A4959</color>
+    <color name="offline_material_bg_color">#384C63</color>
+    <color name="survey_bg_color">#61384E</color>
+    <color name="progress_text_color">#53677D</color>
+    <color name="footer_button_color">#9042F7</color>
+</resources>

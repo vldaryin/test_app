@@ -1,0 +1,17 @@
+apply plugin: 'com.android.library'
+apply from: '../android_commons.gradle'
+
+dependencies {
+    implementation AndroidLibraries.appCompat
+    implementation AndroidLibraries.navigation
+    implementation AndroidLibraries.navigationFrag
+    implementation project(Modules.navigation)
+    implementation project(Modules.model)
+    //RX
+    implementation Libraries.rxAndroid
+    implementation Libraries.rxKotlin
+
+    implementation Libraries.gson
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitGsonConverter
+}

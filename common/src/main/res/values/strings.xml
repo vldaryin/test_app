@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">UULA</string>
+
+    <!--NETWORK-->
+    <string name="something_goes_wrong_try_again_msg">Что то пошло не так! Пожалуйста, повторите попытку!</string>
+    <string name="network_error">Ошибка сети! Проверьте интернет соединение!</string>
+    <string name="network_timeout_error">Превышено время ожидания ответа от сервера!</string>
+
+    <!--LESSONS-->
+    <string name="lessons_header_title">Migration</string>
+    <string name="lessons_header_subtitle">English Language - Grade 12 - Semester 1</string>
+    <string name="type_offline_material">OFFLINE MATERIAL</string>
+    <string name="type_survey">QUIZ</string>
+    <string name="lesson_progress_title">Lesson progress</string>
+    <string name="footer_button_previous">Previous</string>
+    <string name="footer_button_next">Next</string>
+</resources>

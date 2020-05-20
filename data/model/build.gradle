@@ -1,0 +1,10 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation KotlinLibraries.kotlin
+    implementation Libraries.gson
+    implementation Libraries.roomRunTime
+    //RX
+    implementation Libraries.rxAndroid
+    implementation Libraries.rxKotlin
+}

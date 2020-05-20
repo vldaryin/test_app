@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+apply from: '../../android_commons.gradle'
+apply plugin: 'kotlin-kapt'
+
+android {
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+}
+
+dependencies {
+    // ROOM
+    kapt Libraries.roomCompiler
+    implementation Libraries.roomRunTime
+    implementation Libraries.roomKtx
+    implementation AndroidLibraries.lifecycleExtensions
+    // TEST MODULE
+    androidTestImplementation project(Modules.commonTest)
+    // DATA MODULE
+    implementation project(Modules.model)
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation "androidx.room:room-rxjava2:2.2.5"
+    // KOIN
+    implementation Libraries.koin
+    implementation Libraries.koinViewModel
+    //RX
+    implementation Libraries.rxAndroid
+    implementation Libraries.rxKotlin
+    implementation Libraries.rxRoom
+    // TEST
+    androidTestImplementation TestLibraries.androidTestRunner
+    androidTestImplementation TestLibraries.junit
+    androidTestImplementation TestLibraries.koin
+    androidTestImplementation TestLibraries.archCoreTest
+}

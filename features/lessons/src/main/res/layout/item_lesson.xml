@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription,SmallSp">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="lesson"
+            type="com.example.android.data.model.lessons.Lesson" />
+
+        <variable
+            name="viewModel"
+            type="com.example.android.features.lessons.LessonsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lesson_item_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        tools:background="@color/background_color">
+
+        <ImageView
+            android:id="@+id/video_image_view"
+            android:layout_width="114dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="13dp"
+            app:background="@{lesson}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/tools_pic_video" />
+
+        <ImageView
+            android:id="@+id/done_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@null"
+            android:visibility="@{lesson.item.visited, default=gone}"
+            app:layout_constraintStart_toStartOf="@+id/video_image_view"
+            app:layout_constraintTop_toTopOf="@+id/video_image_view"
+            app:srcCompat="@drawable/ic_icon_done"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/play_video_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:visibility="@{lesson.kind, default=gone}"
+            app:layout_constraintBottom_toBottomOf="@+id/video_image_view"
+            app:layout_constraintEnd_toEndOf="@+id/video_image_view"
+            app:layout_constraintStart_toStartOf="@+id/video_image_view"
+            app:layout_constraintTop_toTopOf="@+id/video_image_view"
+            app:srcCompat="@drawable/ic_play_arrow_24px"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:maxLines="2"
+            android:text="@{lesson.item.title}"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/video_image_view"
+            app:layout_constraintTop_toTopOf="@+id/video_image_view"
+            tools:text="This will be very long name that requires two lines" />
+
+        <ImageView
+            android:id="@+id/additional_info_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            app:additionalSrc="@{lesson.kind}"
+            app:layout_constraintStart_toStartOf="@+id/title_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/title_text_view"
+            tools:srcCompat="@drawable/ic_comments_24px" />
+
+        <TextView
+            android:id="@+id/additional_info_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:additionalText="@{lesson}"
+            android:textColor="@color/additional_text_color"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/additional_info_image_view"
+            app:layout_constraintStart_toEndOf="@+id/additional_info_image_view"
+            app:layout_constraintTop_toTopOf="@+id/additional_info_image_view"
+            tools:text="38 Comments" />
+
+        <TextView
+            android:id="@+id/video_duration_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/video_image_view"
+            app:layout_constraintEnd_toEndOf="@+id/video_image_view"
+            app:videoDuration="@{lesson}"
+            tools:text="7:33" />
+
+        <ImageView
+            android:id="@+id/type_icon_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/type_text_view"
+            app:layout_constraintEnd_toEndOf="@+id/video_image_view"
+            app:layout_constraintStart_toStartOf="@+id/video_image_view"
+            app:layout_constraintTop_toTopOf="@+id/video_image_view"
+            app:typeSrc="@{lesson.kind}"
+            tools:srcCompat="@drawable/ic_offline_material_pdf" />
+
+        <TextView
+            android:id="@+id/type_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:typeText="@{lesson.kind}"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/video_image_view"
+            app:layout_constraintEnd_toEndOf="@+id/type_icon_image_view"
+            app:layout_constraintStart_toStartOf="@+id/type_icon_image_view"
+            tools:text="OFFLINE MATERIAL" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
